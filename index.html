@@ -1,99 +1,100 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8" />
-    <title>Word Guess</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <title>Crystal Collector</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+        <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+    </head>
 
-<body>
-    <!--Banner-->
-    <div class="jumbotron">
-        <p>
-            Crystal Guessing Game!
-        </p>
-    </div>
+    <body>
 
-    <!--Container for whole game-->
-    <div class="container" id="gameBox">
+        <!--Container for whole game-->
+        <div class="container" id="gameBox">
 
-        <!--Header-->
-        <header id="gameHeader">
-            Crystals Collector
-        </header>
+            <!--Header-->
+            <h1 class="display-4" id="gameHeader">
+                <p>Crystals Collector<br>
+                Have fun with crystals!</p>
+            </h1>
 
-        <!--Instructions-->
-        <div class="container" id="gameInstruction">
-            <div class="row" id="instructions">
-                <section>
+            <!--Instructions-->
+            <div class="container" id="gameInstruction">
+                <div class="row justify-content-center" id="ins-title">
                     <h3>Instructions</h3>
-                    <p>
+                </div>
+                <div class="row justify-content-center" id="ins-body">
+                    <p id="ins">
                         You will be shown a random number.<br>
-                        When you click on a crystal, it will add a specific amount of points to your total score.<br>
-                        You win if your total score matches the random number.<br>
-                        You lose if your score goes above the random number.<br>
+                        When you click on a crystal, it will add a specific amount of points to your total.<br>
+                        You win if your total matches the random number.<br>
+                        You lose if your total goes above the random number.<br>
                         The game restarts if you win or lose.<br>
                         When the game begins again, you will see a new random number and all crystals will have a new amount of points.<br>
                     </p>
-                </section>
-            </div>
-        </div>
-
-        <!--Game Data-->
-        <div class="container" id="gameData">
-            <div class="row" id="currentNum"></div>
-            <div class="row" id="score">
-                <div class="col-6">
-                    <p>Wins: <span id="wins"></span></p>
-                </div>
-                <div class="col-6">
-                    <p>Losses: <span id="losses"></span></p>
                 </div>
             </div>
-        </div>
 
-        <!--Crystals-->
-        <div class="container" id="gameIcon">
-            <div class="row" id="iconbox">
-                <div class="col-3" id="crystal1">
-                    <input id="first" type="image" name="button" src="https://via.placeholder.com/150">
-                    <div class="slot" id="c1"></div>
-                </div>
-                <div class="col-3" id="crystal2">
-                    <input id="second" type="image" name="button" src="https://via.placeholder.com/150">
-                    <div class="slot" id="c2"></div>
-                </div>
-                <div class="col-3" id="crystal3">
-                    <input id="third" type="image" name="button" src="https://via.placeholder.com/150">
-                    <div class="slot" id="c3"></div>
-                </div>
-                <div class="col-3" id="crystal4">
-                    <input id="fourth" type="image" name="button" src="https://via.placeholder.com/150">
-                    <div class="slot" id="c4"></div>
+            <!-- Match Number -->
+            <div class="container" id="gameNum">
+                <h4 class="row">
+                    <div class="col-8" id="mThis">Match This:</div>
+                    <div class="col-4" id="currentNum"></div>
+                </h4>
+            </div>
+
+            <!--Game Data-->
+            <div class="container" id="gameData">
+                <h4 class="row justify-content-center" id="score">
+                    <div class="col-8">
+                        <p>Wins: <span id="wins">0</span></p>
+                    </div>
+                    <div class="col-4">
+                        <p>Losses: <span id="losses">0</span></p>
+                    </div>
+                </h4>
+            </div>
+
+            <!--Playing Board-->
+            <div class="container" id="gameTally">
+                <h4 class="row">
+                    <div class="col-8" id="sub">Your current total is:</div>
+                    <div class="col-4" id="total"></div>
+                </h4>
+            </div>
+
+            <!--Crystals-->
+            <div class="container" id="iconBox">
+                <div class="row justify-content-center">
+                    <div class="col-3" id="crystal1">
+                        <input id="first" type="image" name="button" src="./assets/images/blue.png">
+                        <div class="slot" id="c1"></div>
+                    </div>
+                    <div class="col-3" id="crystal2">
+                        <input id="second" type="image" name="button" src="./assets/images/yellow.png">
+                        <div class="slot" id="c2"></div>
+                    </div>
+                    <div class="col-3" id="crystal3">
+                        <input id="third" type="image" name="button" src="./assets/images/green.png">
+                        <div class="slot" id="c3"></div>
+                    </div>
+                    <div class="col-3" id="crystal4">
+                        <input id="fourth" type="image" name="button" src="./assets/images/purple.png">
+                        <div class="slot" id="c4"></div>
+                    </div>
                 </div>
             </div>
+
         </div>
 
-        <!--Playing Board-->
-        <div class="card" id="gameTally">
-            <div class="card-body">
-                <h5 class="card-title">Current Total</h5>
-                <h6 class="card-subtitle mb-2">Your current total is:</h6>
-                <p class="card-text" id="total">
+        <!--Game Script-->
+        <script src="./assets/javascript/game.js"></script>
 
-                </p>
-            </div>
-        </div>
-
-    </div>
-
-    <!--Game Script-->
-    <script src="./assets/javascript/game.js"></script>
-
-</body>
+    </body>
 
 </html>
